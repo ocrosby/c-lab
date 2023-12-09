@@ -1,6 +1,8 @@
-hello: hello.c
-	gcc hello.c -o a.out
+hello: hello.o
+	cc hello.o -o hello # Runs third
 
-clean:
-	rm -f a.out
+hello.o: hello.c
+	cc -c hello.c -o hello.o # Runs second
 
+clean: hello
+	rm -f hello hello.o
