@@ -17,9 +17,11 @@ typedef struct Map {
 // The hash function takes a string key and returns an index in the range [0, TABLE_SIZE).
 unsigned int hash(const char *key) {
     unsigned int hash = 0;
+
     while (*key) {
         hash = (hash << 5) - hash + *key++;
-    }
+    } // end while
+
     return hash % TABLE_SIZE;
 }
 
